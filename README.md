@@ -18,14 +18,6 @@ The controller gives the page the values `first`, `second`, `result`, and `error
 
 When the calculation works, the answer is stored in `result`. When the input is not valid, the message is stored in `error`.
 
-## Work split
-
-Josh is responsible for the controller, the calculation logic, and the automated tests.
-
-Amani is responsible for the Thymeleaf page, the CSS, the application screenshots, and the first version of the report.
-
-Both parts should follow the shared page contract so they can be combined without changing field names or routes.
-
 ## Running the project
 
 1. Make sure Java 17 is selected.
