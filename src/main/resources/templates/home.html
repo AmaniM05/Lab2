@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SEG3502 Lab 2 - Calculator</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<div>
+    <h1>Calculator</h1>
+
+    <div th:switch="${error}">
+        <p th:case="'NumberFormatError'">Both values must be numbers</p>
+        <p th:case="'DivideByZeroError'">Cannot divide by zero</p>
+        <p th:case="'OperationFormatError'">Wrong operation</p>
+    </div>
+
+    <form th:action="@{/convert}" method="get">
+        <table>
+            <tr>
+                <td><label for="num1">First number:</label></td>
+                <td><input id="num1" th:name="num1" th:value="${num1}"></td>
+            </tr>
+            <tr>
+                <td><label for="num2">Second number:</label></td>
+                <td><input id="num2" th:name="num2" th:value="${num2}"></td>
+            </tr>
+            <tr>
+                <td><button type="submit" th:name="operation" th:value="add">+</button></td>
+                <td><button type="submit" th:name="operation" th:value="sub">-</button></td>
+            </tr>
+            <tr>
+                <td><button type="submit" th:name="operation" th:value="mul">x</button></td>
+                <td><button type="submit" th:name="operation" th:value="div">/</button></td>
+            </tr>
+        </table>
+    </form>
+
+    <p th:if="${result != null and result != ''}" th:text="'Result: ' + ${result}"></p>
+</div>
+</body>
+</html>
